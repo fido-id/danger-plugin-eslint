@@ -3,13 +3,13 @@ import eslint from "./index"
 declare const global: any
 
 const mockFileContents = (contents: string) => {
-  const asyncContents: Promise<string> = new Promise((resolve, reject) => resolve(contents))
+  const asyncContents: Promise<string> = new Promise((resolve, reject) =>
+    resolve(contents),
+  )
   return async (path: string): Promise<string> => asyncContents
 }
 
 const defaultConfig = {
-  envs: ["browser"],
-  useEslintrc: false,
   extends: "eslint:recommended",
 }
 
@@ -62,7 +62,7 @@ describe("eslint()", () => {
             `
           var foo = 1 + 1;
           console.log(foo);
-        `.trim()
+        `.trim(),
           ),
         },
       },
@@ -71,8 +71,10 @@ describe("eslint()", () => {
 
     await eslint(defaultConfig)
 
-    expect(global.fail).toHaveBeenCalledTimes(2)
-    expect(global.fail).toHaveBeenLastCalledWith("foo.js line 2 – 'console' is not defined. (no-undef)")
+    expect(global.fail).toHaveBeenCalledTimes(1)
+    expect(global.fail).toHaveBeenLastCalledWith(
+      "foo.js line 2 – 'console' is not defined. (no-undef)",
+    )
   })
 
   it("uses the provided eslint config", async () => {
