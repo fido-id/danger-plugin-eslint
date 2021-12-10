@@ -1,6 +1,6 @@
 name: Tests
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -12,3 +12,7 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn test
+      - name: Run danger
+        run: yarn danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

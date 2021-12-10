@@ -2,11 +2,11 @@ import { ESLint, Linter } from "eslint";
 import { DangerDSLType } from "../node_modules/danger/distribution/dsl/DangerDSL";
 
 /* eslint-disable */
-declare const danger: DangerDSLType
-export declare function message(): void
-export declare function warn(): void
-export declare function fail(message: string): void
-export declare function markdown(): void
+declare const danger: DangerDSLType;
+export declare function message(): void;
+export declare function warn(): void;
+export declare function fail(message: string): void;
+export declare function markdown(): void;
 /* eslint-enable */
 
 async function lintFile(linter: ESLint, path: string) {
@@ -15,7 +15,7 @@ async function lintFile(linter: ESLint, path: string) {
   const formatter = await linter.loadFormatter("json");
   const resultText: Linter.FixReport[] = JSON.parse(formatter.format(results));
 
-  resultText[0].messages.map((msg) => {
+  resultText[0]?.messages?.map((msg) => {
     if (msg.fatal) {
       fail(`Fatal error linting ${path} with eslint.`);
       return;
@@ -31,7 +31,7 @@ async function lintFile(linter: ESLint, path: string) {
  * Eslint your code with Danger
  */
 export default async function eslint(
-  config: Linter.Config,
+  config?: Linter.Config,
   override?: Linter.Config
 ) {
   const filesToLint = danger.git.created_files.concat(
