@@ -5,14 +5,20 @@
     "name": "Dan Palmer",
     "email": "dan@danpalmer.me"
   },
+  "contributors": [
+    {
+      "name": "Marco Cotrufo",
+      "email": "marco@fido.id"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/danpalmer/danger-plugin-eslint.git"
+    "url": "https://github.com/fido-id/danger-plugin-eslint.git"
   },
   "bugs": {
-    "url": "https://github.com/danpalmer/danger-plugin-eslint/issues"
+    "url": "https://github.com/fido-id/danger-plugin-eslint/issues"
   },
-  "homepage": "https://github.com/danpalmer/danger-plugin-eslint#readme",
+  "homepage": "https://github.com/fido-id/danger-plugin-eslint#readme",
   "keywords": [
     "danger",
     "danger-plugin",
