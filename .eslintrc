@@ -1,0 +1,28 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["jest"],
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "rules": {
+    "array-callback-return": "off",
+    "import/extensions": [
+      "warn",
+      {
+        "ts": "never"
+      }
+    ],
+    "import/no-relative-packages": "off"
+  },
+  "env": {
+    "jest/globals": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".jsx", ".js", ".tsx"]
+      }
+    }
+  },
+  "globals": {
+    "danger": true
+  }
+}
