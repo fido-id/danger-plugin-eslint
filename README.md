@@ -1,8 +1,6 @@
 # danger-plugin-eslint
 
-[![Build Status](https://travis-ci.org/danpalmer/danger-plugin-eslint.svg?branch=master)](https://travis-ci.org/danpalmer/danger-plugin-eslint)
-[![npm version](https://badge.fury.io/js/danger-plugin-eslint.svg)](https://badge.fury.io/js/danger-plugin-eslint)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Build status](https://github.com/fido-id/danger-plugin-eslint/actions/workflows/test.yml/badge.svg)](https://github.com/fido-id/danger-plugin-eslint/actions/workflows/test.yml)
 
 > Eslint your code with Danger
 
@@ -16,15 +14,18 @@ yarn add danger-plugin-eslint --dev
 
 At a glance:
 
-```js
-// dangerfile.js
-import eslint from 'danger-plugin-eslint'
+```typescript
+// dangerfile.ts
+import { schedule } from "danger";
+import eslint from "@fido-id/danger-plugin-eslint";
 
-eslint()
+schedule(async () => {
+  await eslint();
+});
 ```
 ## Changelog
 
-See the GitHub [release history](https://github.com/danpalmer/danger-plugin-eslint/releases).
+See the GitHub [release history](https://github.com/fido-id/danger-plugin-eslint/releases).
 
 ## Contributing
 
