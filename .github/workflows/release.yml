@@ -1,0 +1,25 @@
+name: build & release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run tests
+        run: yarn test
+      - name: build
+        run: yarn build
+      - uses: actions/checkout@v2
+      - name: Set package registry
+        run: npm config set registry https://npm.pkg.github.com
+      - name: Github package registry authentication
+        run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish the package to Github
+        run: npm publish
